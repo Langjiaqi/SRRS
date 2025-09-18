@@ -1,42 +1,107 @@
-# R-TOFU: Unlearning in Large Reasoning Models
-This repository is the official implementation for the paper: **R-TOFU: Unlearning in Large Reasoning Models.**
 
 
-<p align="center">
-  <a href="https://ai-isl.github.io/r-tofu"> 🏠 Homepage</a> |
-  <a href="https://arxiv.org/abs/2505.15214"> 📜 Paper</a> | 
-  <a href="https://huggingface.co/collections/AI-ISL/r-tofu-unlearning-in-large-reasoning-models-6834177e1869c47bd0c787ce"> 🤗 Dataset</a>
-</p>
+## Requirements
 
+
+- **Software**: Python 3.11, PyTorch, CUDA 11.8/12.4
 
 ## Installation
+
+### 1. Create Environment
 
 ```shell
 conda create -n rtofu python=3.11
 conda activate rtofu
+```
+
+### 2. Install PyTorch and CUDA
+
+```shell
 conda install pytorch pytorch-cuda=12.4 -c pytorch -c nvidia
 conda install -c "nvidia/label/cuda-12.4.1" cuda-toolkit
+```
+
+### 3. Install Dependencies
+
+```shell
 pip install -r requirements.txt
 pip install flash-attn --no-build-isolation
 ```
 
 
-*All experiments are conducted on eight  NVIDIA L40 GPUs (384 GB total VRAM)*
 
-## Fictitious unlearning scenario
+## Core Functionality
 
-**(1) Fine-tuning the Target Model**
+### 1. GRPO Training
+Machine unlearning training based on Generative Ranking Preference Optimization:
 
 ```shell
-bash scripts/tofu/finetune.sh
+# Single-stage GRPO training
+bash scripts/tofu/grpo.sh
+
+# Or use Python directly
+python grpo.py
 ```
 
-**(2) Unlearning the Target Model**
+### 2. SFT+GRPO Two-stage Training
+First perform supervised fine-tuning, then execute GRPO optimization:
 
 ```shell
-bash scripts/tofu/unlearn.sh
+# Two-stage training
+bash scripts/tofu/grposft.sh
+
+# Or use Python directly
+python grposft.py
+```
+
+### 3. Continual Unlearning Training
+Support for progressive multi-task forgetting:
+
+```shell
+# Continual unlearning training
+bash scripts/tofu/continual.sh
+```
+
+### 4. Model Evaluation
+
+```shell
+# Standard evaluation
+bash scripts/tofu/eval.sh
+
+# Task-specific evaluation
+bash scripts/tofu/eval_for_specific.sh
+```
+
+### 5. Model Testing
+
+```shell
+# Multi-output generation testing
+python testmodel.py
+
+# Simplified testing
+python run_test_multi.py
+```
+
+### Quick Start
+```shell
+# 1. Activate environment
+conda activate rtofu
+
+# 2. Set task list
+export TASK_LIST="1,2,3"
+
+# 3. Run GRPO training
+python grpo.py
+
+# 4. Evaluate model
+python eval.py
 ```
 
 ## Acknowledgments
 
-This repository builds upon selected components of the codebase from [A Closer Look at Machine Unlearning for Large Language Models](https://github.com/sail-sg/closer-look-LLM-unlearning). We appreciate their outstanding work!
+This repository builds upon selected components of the codebase from:
+- [A Closer Look at Machine Unlearning for Large Language Models](https://github.com/sail-sg/closer-look-LLM-unlearning)
+- [R-TOFU original implementation](https://github.com/ssangyeon/R-TOFU)
+
+We appreciate their outstanding work and contributions to the machine unlearning research community!
+
