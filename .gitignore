@@ -1,0 +1,133 @@
+# Python相关
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# 虚拟环境
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.conda/
+conda-meta/
+
+# IDE和编辑器
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# 机器学习相关
+# 模型文件
+*.pkl
+*.pickle
+*.joblib
+*.h5
+*.hdf5
+*.ckpt
+*.pth
+*.pt
+*.safetensors
+*.bin
+
+# 大型数据文件
+*.csv
+*.json
+*.jsonl
+*.parquet
+*.feather
+*.hdf
+*.h5
+
+# 输出和结果目录
+outputs/
+results/
+logs/
+wandb/
+tensorboard_logs/
+tb_logs/
+checkpoints/
+saved_models/
+model_outputs/
+
+# 数据目录（根据需要调整）
+data/
+dataset/
+datasets/
+local_models/
+
+# 缓存和临时文件
+.cache/
+tmp/
+temp/
+.tmp/
+
+# 配置文件中的敏感信息
+config/secrets.yaml
+config/secrets.yml
+config/local_config.yaml
+config/local_config.yml
+.env
+.env.local
+.env.*.local
+
+# 测试和评估结果
+test_results/
+eval_results/
+evaluation/
+metrics/
+
+# 系统文件
+*.log
+*.pid
+*.seed
+nohup.out
+
+# Git相关
+.git/
+.gitattributes
+
+# 压缩文件
+*.zip
+*.tar.gz
+*.tar
+*.rar
+*.7z
+
+# 文档生成
+docs/_build/
+site/
+
+# 其他常见忽略项
+.pytest_cache/
+.coverage
+htmlcov/
+.nyc_output
+.sass-cache/ 
