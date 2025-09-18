@@ -82,20 +82,6 @@ python testmodel.py
 python run_test_multi.py
 ```
 
-### Quick Start
-```shell
-# 1. Activate environment
-conda activate rtofu
-
-# 2. Set task list
-export TASK_LIST="1,2,3"
-
-# 3. Run GRPO training
-python grpo.py
-
-# 4. Evaluate model
-python eval.py
-```
 
 ## Acknowledgments
 
